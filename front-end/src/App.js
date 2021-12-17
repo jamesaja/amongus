@@ -21,6 +21,7 @@ function App() {
         maps: [],
     })
     const [search, setSearch] = useState("")
+    const [sortBy, setSortBy] = useState("")
 
     useEffect(() => {
         getSeasons().then(seasons => {
@@ -38,7 +39,7 @@ function App() {
     // Track page views
     const location = useLocation()
     useEffect(() => {
-        const t = setInterval(function() {
+        const t = setInterval(function () {
             if (window.goatcounter && window.goatcounter.count) {
                 clearInterval(t)
                 window.goatcounter.count({
@@ -115,6 +116,8 @@ function App() {
                             players={players}
                             search={search}
                             setSearch={setSearch}
+                            sortBy={sortBy}
+                            setSortBy={setSortBy}
                         />
                     </Route>
                     <Route path="/stats">
